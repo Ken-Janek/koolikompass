@@ -1,5 +1,7 @@
 # Kaitsmise kava ja nõuete kontroll
 
+Tegelikud tõendid: [repositoorium](https://github.com/Ken-Janek/koolikompass), [avalik projektitahvel](https://github.com/users/Ken-Janek/projects/1) ja [commit'ide ajalugu](https://github.com/Ken-Janek/koolikompass/commits/main/). Tahvli olekud on inglise keeles: Ready = valmis alustamiseks, In progress = töös, In review = kontrollimisel, Done = valmis.
+
 ## Umbes 7-minutiline esitlus
 
 1. **Idee, 45 sekundit.** „KooliKompass aitab mul koondada eri ainete ülesanded ja tähtajad ühte kohta.“ Lisa oma tegelik näide. Ütle, et rakendus on kavandatud, mitte programmeeritud.

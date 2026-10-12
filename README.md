@@ -29,6 +29,14 @@ Sihtkasutaja on õpilane. Esimene versioon on isiklik planeerija: õpetaja ei ja
 
 Veebirakendus, kihiline monoliit, iteratiivne ja inkrementaalne arendus ning Kanban. Kavandatav tehnoloogia on Django koos serveris renderdatavate HTML-mallide, CSS-i ja PostgreSQL-iga. Tegemist on kavandiga, mitte valmis rakendusega.
 
-## Hetkeseis
+## Hetkeseis ja tegelikud tõendid
 
-Kohalikud dokumendid, skeemid ja Git-ajalugu on kavandamise tõendid. GitHubi repositooriumi ning GitHub Projects tahvli olemasolu tuleb kinnitada nende tegelike linkidega; juhend või JSON-fail ei asenda töötavat projektitahvlit.
+- [Avalik GitHubi repositoorium](https://github.com/Ken-Janek/koolikompass)
+- [Avalik GitHub Projects Kanbani tahvel](https://github.com/users/Ken-Janek/projects/1)
+- [Sisuliste commit'ide ajalugu](https://github.com/Ken-Janek/koolikompass/commits/main/)
+- [Arhitektuuriskeem diagrams.net-is](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FKen-Janek%2Fkoolikompass%2Fmain%2Fdiagrams%2Farhitektuur.drawio)
+- [Andmemudel diagrams.net-is](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FKen-Janek%2Fkoolikompass%2Fmain%2Fdiagrams%2Fandmemudel.drawio)
+
+Tahvlil on kaheksa kirjeldatud kasutajalugu koos prioriteetide, hinnangute, sõltuvuste ja vastuvõtukriteeriumidega. US-01 on Ready ning teised Backlog. In progress ja In review piir on üks kaart. Arhitektuuriskeem on avatud ja visuaalselt kontrollitud diagrams.net-is; mõlema XML-faili struktuur ning viited on kontrollitud.
+
+Rakendust pole programmeeritud. Kavandamise commit'id ja tööde planeerimine on valmis; rakenduse arenduslood ootavad teostust. Avaldamiseks mõeldud commit'ides kasutatakse GitHubi noreply aadressi.

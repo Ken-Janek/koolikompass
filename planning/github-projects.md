@@ -1,5 +1,9 @@
 # GitHub Projects: tahvli seadistus
 
+Tegelik avalik tahvel: [KooliKompass – arendus](https://github.com/users/Ken-Janek/projects/1). Seal on kaheksa mustandkaarti koos kasutajalugude, kriteeriumide ja sõltuvustega ning Priority ja Estimate väljad. Periood on kaardi kirjelduses, mitte eraldi väljas. Vaikerepositoorium on `Ken-Janek/koolikompass`.
+
+Loodud tahvel kasutab GitHubi ingliskeelseid olekuid: Backlog, Ready, In progress, In review ja Done. Need vastavad alloleva plaani eestikeelsetele olekutele. In progress ja In review veergude nähtav piir on 1; piiri järgib arendaja.
+
 ## Soovitud tahvel
 
 Nimi: **KooliKompass – arendus**. Vaade: Board, rühmitatud välja Status järgi.
