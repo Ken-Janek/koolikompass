@@ -1,6 +1,6 @@
 # Töötav rakendus: versioon 0.3.0
 
-Arenduskavandi põhjal on lisatud Django rakendus kausta `app/`. Kavandamise dokumendid ja tahvel säilitavad algse plaani; see dokument kirjeldab praegust teostust.
+Arenduskavandi põhjal on lisatud Django rakendus kausta `app/`. Kavandamise dokumendid säilitavad algse plaani; tegelikul GitHub Projects tahvlil on US-01–US-08 nüüd Done-veergu viidud. See dokument kirjeldab teostust ja selle kontrollimise piire.
 
 ## Kasutajalood ja teostus
 

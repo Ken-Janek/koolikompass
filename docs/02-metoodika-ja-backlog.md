@@ -53,4 +53,4 @@ Eesmärk on võimaldada õpilasel konto luua, lisada aine ja salvestada ülesann
 
 Lugude hinnangud sisaldavad nende funktsioonide teste; ühine demonstratsioon kontrollib terviklikku töövoogu. Kui aeg saab otsa, ei märgi pooleli olevat lugu valmis. Uuendan prognoosi ning jätan US-03 järgmisse perioodi, kui US-01 ja US-02 lõpetamine seda nõuab.
 
-Esialgu on US-01 veerus „Valmis alustamiseks“. US-02–US-08 on backlog'is, sest nende sõltuvused pole veel arendatud. Õpilaslugude rakendamist pole praeguses kavandamistöös alustatud.
+Esialgses kavandis oli US-01 veerus „Valmis alustamiseks“ ning US-02–US-08 backlog'is. Pärast Django rakenduse teostamist ja kontrollimist on kõik kaheksa kaarti Done-veergu viidud. Teostuse kontrollid ja piirangud on dokumendis `10-rakenduse-teostus.md`; algne prioriteetide ja perioodide plaan säilib ülal võrdluseks.

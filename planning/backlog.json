@@ -1,10 +1,89 @@
 [
-  {"id":"US-01","title":"Konto ja sisselogimine","priority":"P1","estimate":6,"period":"1","status":"Valmis alustamiseks","dependsOn":[]},
-  {"id":"US-02","title":"Õppeaine lisamine","priority":"P1","estimate":3,"period":"1","status":"Backlog","dependsOn":["US-01"]},
-  {"id":"US-03","title":"Tähtajaga ülesande lisamine","priority":"P1","estimate":5,"period":"1","status":"Backlog","dependsOn":["US-02"]},
-  {"id":"US-04","title":"Ülesannete tähtaja järgi järjestamine","priority":"P1","estimate":4,"period":"2","status":"Backlog","dependsOn":["US-03"]},
-  {"id":"US-05","title":"Ülesande tehtuks märkimine","priority":"P1","estimate":2,"period":"2","status":"Backlog","dependsOn":["US-04"]},
-  {"id":"US-06","title":"Ülesande muutmine ja kustutamine","priority":"P1","estimate":3,"period":"2","status":"Backlog","dependsOn":["US-03"]},
-  {"id":"US-07","title":"Õppeaine ja oleku filtrid","priority":"P2","estimate":3,"period":"Hiljem","status":"Backlog","dependsOn":["US-04","US-05"]},
-  {"id":"US-08","title":"Nädala kalendrivaade","priority":"P3","estimate":5,"period":"Hiljem","status":"Backlog","dependsOn":["US-04"]}
+  {
+    "id": "US-01",
+    "title": "Konto ja sisselogimine",
+    "priority": "P1",
+    "estimate": 6,
+    "period": "1",
+    "status": "Done",
+    "dependsOn": []
+  },
+  {
+    "id": "US-02",
+    "title": "Õppeaine lisamine",
+    "priority": "P1",
+    "estimate": 3,
+    "period": "1",
+    "status": "Done",
+    "dependsOn": [
+      "US-01"
+    ]
+  },
+  {
+    "id": "US-03",
+    "title": "Tähtajaga ülesande lisamine",
+    "priority": "P1",
+    "estimate": 5,
+    "period": "1",
+    "status": "Done",
+    "dependsOn": [
+      "US-02"
+    ]
+  },
+  {
+    "id": "US-04",
+    "title": "Ülesannete tähtaja järgi järjestamine",
+    "priority": "P1",
+    "estimate": 4,
+    "period": "2",
+    "status": "Done",
+    "dependsOn": [
+      "US-03"
+    ]
+  },
+  {
+    "id": "US-05",
+    "title": "Ülesande tehtuks märkimine",
+    "priority": "P1",
+    "estimate": 2,
+    "period": "2",
+    "status": "Done",
+    "dependsOn": [
+      "US-04"
+    ]
+  },
+  {
+    "id": "US-06",
+    "title": "Ülesande muutmine ja kustutamine",
+    "priority": "P1",
+    "estimate": 3,
+    "period": "2",
+    "status": "Done",
+    "dependsOn": [
+      "US-03"
+    ]
+  },
+  {
+    "id": "US-07",
+    "title": "Õppeaine ja oleku filtrid",
+    "priority": "P2",
+    "estimate": 3,
+    "period": "Hiljem",
+    "status": "Done",
+    "dependsOn": [
+      "US-04",
+      "US-05"
+    ]
+  },
+  {
+    "id": "US-08",
+    "title": "Nädala kalendrivaade",
+    "priority": "P3",
+    "estimate": 5,
+    "period": "Hiljem",
+    "status": "Done",
+    "dependsOn": [
+      "US-04"
+    ]
+  }
 ]

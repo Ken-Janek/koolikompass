@@ -1,6 +1,7 @@
 # Kontrolltõendid
 
 - `kanban.jpg`: tegeliku GitHub Projects tahvli vaade. Kokku on 7 backlog'i kaarti ja 1 alustamisvalmis kaart. Töös ja kontrollimisel on nähtav piir 1.
+- `kanban-valmis.jpg`: uuendatud tahvel, mille Done-veerg sisaldab kõiki kaheksat kasutajalugu. Varasem `kanban.jpg` on algse kavandi tõend.
 - `arhitektuur.jpg`: arhitektuuriskeem avatud diagrams.net redaktoris.
 - `rakendus.jpg`: töötava Django rakenduse ülesannete nimekiri demoandmetega.
 - `rakendus-telefon.jpg`: sama nimekiri 360 px telefoni vaates.
