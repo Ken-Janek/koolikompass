@@ -4,7 +4,7 @@
 
 | Etapp | Tegevus KooliKompassis | Tulemus ja eesmärk |
 |---|---|---|
-| Idee ja probleemi uurimine | Kirjeldan enda ajaplaneerimise probleemi ning küsin kolmelt kaasõpilaselt, kuidas nad tähtaegu jälgivad. | Selgub, kas ühine ülesannete vaade lahendab tegeliku probleemi. |
+| Idee ja probleemi uurimine | Uurin, kuidas õpilased ülesandeid ja tähtaegu jälgivad, ning küsin kolmelt õpilaselt nende vajaduste kohta. | Selgub, kas ühine ülesannete vaade lahendab tegeliku probleemi. |
 | Nõuete analüüs | Koostan kasutajalood, prioriteedid ja vastuvõtukriteeriumid. | Piiritlen esimese versiooni ja saan aru, mida kasutaja vajab. |
 | Kavandamine | Valin tehnoloogiad, joonistan arhitektuuri ja andmemudeli ning visandan ülesannete vaate. | Enne programmeerimist on teada komponentide vastutus ja andmete struktuur. |
 | Teostus | Arendan väikeste osadena: konto, õppeained, ülesanded, nimekiri ja tehtuks märkimine. | Iga osa annab kontrollitava tulemuse. |

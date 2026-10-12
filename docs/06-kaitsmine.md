@@ -14,7 +14,7 @@ Tegelikud tõendid: [repositoorium](https://github.com/Ken-Janek/koolikompass), 
 
 ## Projekti selgitamise 5-minutiline harjutus
 
-1. **Idee, 30 sekundit.** „KooliKompass aitab mul koondada eri ainete ülesanded ja tähtajad ühte kohta.“ Lisa oma tegelik näide. Ütle, et rakendus on kavandatud, mitte programmeeritud.
+1. **Idee, 30 sekundit.** „KooliKompass on õppeülesande jaoks koostatud kooliülesannete ja tähtaegade planeerija kavand.“ Näita põhifunktsioone.
 2. **Protsess, 45 sekundit.** Selgita etappe ja võrdle koskmudelit iteratiivse mudeliga. Too nädalakalendri lisamise näide nõuete muutumisest.
 3. **Kanban, 1 minut.** Ava tegelik GitHub Projects tahvel, näita kaheksat lugu, prioriteete, US-03 sõltuvust ning esimese perioodi 20 tunni plaani. Selgita poolelioleva töö piirangut.
 4. **CASE, 30 sekundit.** Näita diagrams.net-is avatud `.drawio` faili. Võrdle visuaalset redaktorit PlantUML-i tekstikirjeldusega; praktilist muudatust harjuta eraldi B-osas.
@@ -53,7 +53,7 @@ Kõik neli õpiväljundit tuleb eraldi tõendada. Valmis dokumendid ei asenda is
 
 ## Võimalikud küsimused
 
-**Miks pole õpetaja rolli?** Esimese versiooni eesmärk on minu isiklik planeerimine. Õpetaja töövoog suurendaks ulatust ning pole põhivajaduse jaoks vajalik.
+**Miks pole õpetaja rolli?** Esimene versioon keskendub õpilase ülesannete planeerimisele. Õpetaja töövoog suurendaks ulatust.
 
 **Miks Kanban, mitte Scrum?** Ühe arendaja pidevat töövoogu saab jälgida lihtsa tahvli ja tööpiiranguga. Scrum sobiks kindla koostöörütmiga meeskonnale, kuid vajaks rollide ja sündmuste korraldust.
 
@@ -65,7 +65,7 @@ Kõik neli õpiväljundit tuleb eraldi tõendada. Valmis dokumendid ei asenda is
 
 ## Enne esitamist
 
-- Lisa README-sse enda tegelik näide ja veendu, et oskad kõiki valikuid oma sõnadega seletada.
+- Veendu, et oskad kõiki valikuid oma sõnadega seletada.
 - Kontrolli repositooriumi ja projektitahvli ligipääsu õpetajale.
 - Harjuta `.drawio` skeemi avamist, muutmist ja salvestamist.
 - Näita vähemalt viie commit'i sisu, mitte ainult nende arvu.

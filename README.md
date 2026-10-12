@@ -2,9 +2,9 @@
 
 Kooliülesannete ja tähtaegade planeerija — tarkvararakenduse arenduskavand.
 
-## Idee ja isiklik seos
+## Projekti idee
 
-Õpilasena pean jälgima eri õppeainete ülesandeid ja tähtaegu. KooliKompass koondaks need ühte vaatesse, et saaksin otsustada, mida järgmisena teha. See on projekti lähte-eeldus: enne esitamist lisan oma tegeliku näite olukorrast, kus ülesannete jälgimine oli keeruline.
+KooliKompass on kooliülesannete ja tähtaegade planeerija arenduskavand, mis on koostatud õppeülesande jaoks. Rakendus koondaks ülesanded ja tähtajad ühte vaatesse.
 
 Sihtkasutaja on õpilane. Esimene versioon on isiklik planeerija: õpetaja ei jaga selles ülesandeid ja rakendus ei ühendu kooli infosüsteemiga. Ülesanded sisestab õpilane ise.
 
