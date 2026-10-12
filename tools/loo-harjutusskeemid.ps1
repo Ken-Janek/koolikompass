@@ -63,6 +63,7 @@ Add-Box $mobile 'mobile' 'Mobiilirakendus<br>Eraldi kasutajaliides' 940 180 180 
 Add-Edge $mobile 'mobile-api' 'HTTPS / JSON<br>Autentimine' 'mobile' 'api' 'exitX=0;exitY=0.5;entryX=1;entryY=0.5;'
 Add-Edge $mobile 'api-logic' 'Samad ärireeglid' 'api' 'logic' 'exitX=0.5;exitY=1;entryX=0.8;entryY=0;'
 (Get-Cell $mobile 'e1').SetAttribute('style', 'edgeStyle=orthogonalEdgeStyle;html=1;startArrow=classic;endArrow=classic;exitX=0.5;exitY=1;entryX=0.2;entryY=0;labelBackgroundColor=#ffffff;')
+(Get-Cell $mobile 'e4').SetAttribute('style', 'edgeStyle=orthogonalEdgeStyle;html=1;startArrow=classic;endArrow=classic;exitX=0;exitY=0.2;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;')
 (Get-Cell $mobile 'note').SetAttribute('value', 'Uus: mobiiliklient ja API-kiht. Taaskasutus: äriloogika, ORM ning andmebaas.<br>Veeb kasutab HTML-i, mobiil JSON-i. Mõlemad läbivad õiguste kontrolli. Server on endiselt monoliit.')
 Save-Diagram $mobile 'arhitektuur-mobiil.drawio' 'Harjutus 1 — mobiilirakendus'
 
