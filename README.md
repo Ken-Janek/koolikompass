@@ -20,6 +20,7 @@ Sihtkasutaja on õpilane. Esimene versioon on isiklik planeerija: õpetaja ei ja
 - [Arhitektuur ja andmemudel](docs/04-arhitektuur.md)
 - [Git ja versiooniplaan](docs/05-git-ja-versioonid.md)
 - [Kaitsmise kava ja nõuete kontroll](docs/06-kaitsmine.md)
+- [15–20 minuti praktilise kaitsmise harjutused](docs/07-praktiline-kaitsmine.md)
 - [Muudetav arhitektuuriskeem](diagrams/arhitektuur.drawio)
 - [Muudetav andmemudel](diagrams/andmemudel.drawio)
 - [Projektitahvli ettevalmistus](planning/github-projects.md)

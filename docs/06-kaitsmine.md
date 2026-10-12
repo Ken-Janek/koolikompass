@@ -2,14 +2,37 @@
 
 Tegelikud tõendid: [repositoorium](https://github.com/Ken-Janek/koolikompass), [avalik projektitahvel](https://github.com/users/Ken-Janek/projects/1) ja [commit'ide ajalugu](https://github.com/Ken-Janek/koolikompass/commits/main/). Tahvli olekud on inglise keeles: Ready = valmis alustamiseks, In progress = töös, In review = kontrollimisel, Done = valmis.
 
-## Umbes 7-minutiline esitlus
+## Kaitsmise tegelik formaat: 15–20 minutit
 
-1. **Idee, 45 sekundit.** „KooliKompass aitab mul koondada eri ainete ülesanded ja tähtajad ühte kohta.“ Lisa oma tegelik näide. Ütle, et rakendus on kavandatud, mitte programmeeritud.
-2. **Protsess, 1 minut.** Selgita etappe ja võrdle koskmudelit iteratiivse mudeliga. Too nädalakalendri lisamise näide nõuete muutumisest.
-3. **Kanban, 1,5 minutit.** Ava tegelik GitHub Projects tahvel, näita kaheksat lugu, prioriteete, US-03 sõltuvust ning esimese perioodi 20 tunni plaani. Selgita poolelioleva töö piirangut.
-4. **CASE, 1 minut.** Ava `.drawio` fail diagrams.net-is ja muuda ühe komponendi nime. Võrdle visuaalset redaktorit PlantUML-i tekstikirjeldusega.
+Õpetaja valib projekti otsused ja ootamatu muudatuse. See pole ainult ettevalmistatud esitlus: vaja on avada töövahendid, muuta lahendust ja põhjendada mõju. [Praktilised harjutused ja teadmiste kontroll](07-praktiline-kaitsmine.md) aitavad valmistuda.
+
+| Osa | Aeg | Mida näitan |
+|---|---:|---|
+| A. Projekti selgitamine | 5 min | Õpetaja valitud otsuste põhjendus ja tõend dokumendis, skeemil või tahvlil |
+| B. Ootamatu muudatus | 10 min | Muudetud skeem või backlog, mõju ulatusele ja arendusele ning muudatuse kontroll |
+| C. Teadmiste kontroll | 5 min | Mõistete rakendamine oma projekti näidetega |
+
+## Projekti selgitamise 5-minutiline harjutus
+
+1. **Idee, 30 sekundit.** „KooliKompass aitab mul koondada eri ainete ülesanded ja tähtajad ühte kohta.“ Lisa oma tegelik näide. Ütle, et rakendus on kavandatud, mitte programmeeritud.
+2. **Protsess, 45 sekundit.** Selgita etappe ja võrdle koskmudelit iteratiivse mudeliga. Too nädalakalendri lisamise näide nõuete muutumisest.
+3. **Kanban, 1 minut.** Ava tegelik GitHub Projects tahvel, näita kaheksat lugu, prioriteete, US-03 sõltuvust ning esimese perioodi 20 tunni plaani. Selgita poolelioleva töö piirangut.
+4. **CASE, 30 sekundit.** Näita diagrams.net-is avatud `.drawio` faili. Võrdle visuaalset redaktorit PlantUML-i tekstikirjeldusega; praktilist muudatust harjuta eraldi B-osas.
 5. **Arhitektuur, 1,5 minutit.** Jälgi skeemil ülesande lisamise teekonda brauserist andmebaasi ja tagasi. Põhjenda monoliiti võrreldes mikroteenustega. Näita andmemudeli seoseid.
-6. **Git, 1 minut.** Ava GitHubi commit'ide ajalugu ja üks sisuline muudatus. Too PATCH-, MINOR- ja MAJOR-näide. Ütle, et tag märgistab täpse väljalaske commit'i.
+6. **Git, 45 sekundit.** Ava GitHubi commit'ide ajalugu ja üks sisuline muudatus. Too PATCH-, MINOR- ja MAJOR-näide. Ütle, et tag märgistab täpse väljalaske commit'i.
+
+See ajajaotus on harjutamiseks. Kaitsmisel vasta õpetaja küsimusele otse ja näita vastavat osa; kõiki punkte ei pruugi järjest ette kanda.
+
+## Hindamise järgi valmistumine
+
+| Hinnatav osa | Osakaal | Harjutuse tulemus |
+|---|---:|---|
+| Kavand ja nõuete täitmine | 25% | Leian kõik nõutud materjalid repositooriumist |
+| Valikute põhjendamine | 25% | Selgitan valiku põhjust, alternatiivi ja puudust oma projekti näitel |
+| Ootamatu praktiline muudatus | 35% | Muudan ise skeemi või tahvlit ja kontrollin lahenduse kooskõla |
+| Teadmiste kontroll | 15% | Vastan küsimustele ning toon rakendamise näite |
+
+Kõik neli õpiväljundit tuleb eraldi tõendada. Valmis dokumendid ei asenda iseseisvat muutmist ega arusaamist. Harjutamisel pööra enim aega praktilisele muudatusele, kuid kontrolli iga osa eraldi.
 
 ## Nõuete vastavus
 
