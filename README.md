@@ -22,6 +22,7 @@ Sihtkasutaja on õpilane. Esimene versioon on isiklik planeerija: õpetaja ei ja
 - [Kaitsmise kava ja nõuete kontroll](docs/06-kaitsmine.md)
 - [15–20 minuti praktilise kaitsmise harjutused](docs/07-praktiline-kaitsmine.md)
 - [Õppetekst ja kaitsmisel avatavad lingid](docs/08-oppetekst-ja-lingid.md)
+- [Arhitektuuriskeemi kolm muudetavat harjutuskoopiat](docs/09-skeemide-koopiad.md)
 - [Muudetav arhitektuuriskeem](diagrams/arhitektuur.drawio)
 - [Muudetav andmemudel](diagrams/andmemudel.drawio)
 - [Projektitahvli ettevalmistus](planning/github-projects.md)

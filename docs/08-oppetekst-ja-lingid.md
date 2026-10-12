@@ -44,6 +44,8 @@
 
 ## Praktiline muudatus
 
+Valmis näidiskoopiaid saab avada [siit](09-skeemide-koopiad.md). Seal on ka lühikesed juhised skeemi ja tahvli muutmiseks.
+
 | Ülesanne | Ava | Tee ja selgita |
 |---|---|---|
 | Mobiilirakendus | Arhitektuuriskeem ja tahvel | Lisa mobiiliklient ja serveri sisse API-kiht. Ühenda API äriloogikaga. Ärireeglid ja andmebaas jäävad ühised. Lisa API, autentimise, mobiilivaadete ja kontrollimise tööd ning hinda mõju ajale. |
