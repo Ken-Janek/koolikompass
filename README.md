@@ -1,6 +1,12 @@
 # KooliKompass
 
-Kooliülesannete ja tähtaegade planeerija — tarkvararakenduse arenduskavand.
+Kooliülesannete ja tähtaegade planeerija — arenduskavand ja töötav Django rakendus.
+
+## Rakenduse käivitamine
+
+Windowsis käivita põhikaustas **`kaivita.cmd`**, seejärel ava **http://127.0.0.1:8000**. Loo konto, lisa õppeained ja sisesta ülesanded. Andmed säilivad kohalikus andmebaasis.
+
+[Käivitamisjuhend ja PostgreSQL-i seadistamine](app/README.md) · [Rakenduse lähtekood](app/) · [Kontrollitulemused](docs/10-rakenduse-teostus.md)
 
 ## Projekti idee
 
@@ -30,7 +36,7 @@ Sihtkasutaja on õpilane. Esimene versioon on isiklik planeerija: õpetaja ei ja
 
 ## Valitud lahendus
 
-Veebirakendus, kihiline monoliit, iteratiivne ja inkrementaalne arendus ning Kanban. Kavandatav tehnoloogia on Django koos serveris renderdatavate HTML-mallide, CSS-i ja PostgreSQL-iga. Tegemist on kavandiga, mitte valmis rakendusega.
+Veebirakendus, kihiline monoliit, iteratiivne ja inkrementaalne arendus ning Kanban. Tehnoloogia on Django koos serveris renderdatavate HTML-mallide ja CSS-iga. Kohalik käivitus kasutab SQLite'i; kavandatud PostgreSQL-i ühenduse saab seadistada keskkonnamuutujatega. Algne arendusplaan säilib kavandamise dokumentides ja töötav teostus asub kaustas `app/`.
 
 ## Hetkeseis ja tegelikud tõendid
 
@@ -42,4 +48,4 @@ Veebirakendus, kihiline monoliit, iteratiivne ja inkrementaalne arendus ning Kan
 
 Tahvlil on kaheksa kirjeldatud kasutajalugu koos prioriteetide, hinnangute, sõltuvuste ja vastuvõtukriteeriumidega. US-01 on Ready ning teised Backlog. In progress ja In review piir on üks kaart. Arhitektuuriskeem on avatud ja visuaalselt kontrollitud diagrams.net-is; mõlema XML-faili struktuur ning viited on kontrollitud.
 
-Rakendust pole programmeeritud. Kavandamise commit'id ja tööde planeerimine on valmis; rakenduse arenduslood ootavad teostust. Avaldamiseks mõeldud commit'ides kasutatakse GitHubi noreply aadressi.
+Rakenduse teostuses on kontod, õppeained, ülesannete haldus, filtrid, otsing ja nädalavaade. Projekti tahvel ning kavandamise kontrollpildid näitavad algset planeerimisseisu. Teostuse ja kontrollimise tulemused on [eraldi dokumendis](docs/10-rakenduse-teostus.md). Avaldamiseks mõeldud commit'ides kasutatakse GitHubi noreply aadressi.

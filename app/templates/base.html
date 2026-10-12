@@ -1,0 +1,25 @@
+{% load static %}<!doctype html>
+<html lang="et">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}KooliKompass{% endblock %}</title><link rel="stylesheet" href="{% static 'app.css' %}"><script defer src="{% static 'app.js' %}"></script></head>
+<body><a class="skip-link" href="#main">Liigu sisu juurde</a>
+{% if user.is_authenticated %}
+<div class="app-shell">
+<aside class="sidebar">
+  <a class="brand" href="{% url 'dashboard' %}"><span class="brand-mark">✳</span><span>KooliKompass<small>SELGEM KOOLIPÄEV</small></span></a>
+  <p class="nav-label">MINU TÖÖLAUD</p>
+  <nav aria-label="Põhinavigatsioon">
+    <a class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}"><span aria-hidden="true">▦</span> Ülesanded</a>
+    <a class="nav-item {% if request.resolver_match.url_name == 'calendar' %}active{% endif %}" href="{% url 'calendar' %}"><span aria-hidden="true">▤</span> Nädalavaade</a>
+    <a class="nav-item {% if request.resolver_match.url_name == 'subjects' %}active{% endif %}" href="{% url 'subjects' %}"><span aria-hidden="true">▱</span> Õppeained</a>
+  </nav>
+  <div class="sidebar-note"><span class="note-icon">✧</span><strong>Üks ülesanne korraga.</strong><p>Väikesed sammud viivad suurte tulemusteni.</p></div>
+  <div class="profile"><span class="avatar">{{ user.username|first|upper }}</span><div><strong>{{ user.username }}</strong><small>Minu konto</small></div><form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="logout" title="Logi välja" aria-label="Logi välja">↪</button></form></div>
+</aside>
+<div class="main-wrap"><header class="topbar"><span>Minu töölaud <span class="topbar-divider">/</span> {% block breadcrumb %}Ülesanded{% endblock %}</span><span class="version">KooliKompass <span>0.3.0</span></span></header>
+<main id="main" class="content">
+{% if messages %}<div class="messages" aria-live="polite">{% for message in messages %}<div class="message {{ message.tags }}">{{ message }}<button type="button" data-dismiss-message aria-label="Sulge teade">×</button></div>{% endfor %}</div>{% endif %}
+{% block content %}{% endblock %}
+</main><footer class="footer">Vähem meelespidamist. Rohkem tehtud töid.<span>KooliKompass © {% now 'Y' %}</span></footer></div>
+</div>
+{% else %}<main id="main" class="auth-shell"><section class="auth-story"><a class="brand" href="{% url 'login' %}"><span class="brand-mark">✳</span><span>KooliKompass</span></a><div><span class="eyebrow">SINU KOOLIPÄEV, SELGEMALT</span><h1>Hea plaan.<br>Rahulikum päev.</h1><p>Ülesanded, õppeained ja tähtajad.<br>Kõik vajalik ühes kohas.</p><div class="auth-illustration" aria-hidden="true"><span class="orbit"></span><span class="orbit two"></span><div class="illustration-card"><span>✓</span><div><strong>Üks samm edasi</strong><small>Väikesed võidud loevad.</small></div></div><span class="floating-star">✧</span></div></div><small>Vähem meelespidamist. Rohkem tehtud töid.</small></section><section class="auth-panel">{% block auth_content %}{% endblock %}</section></main>{% endif %}
+</body></html>

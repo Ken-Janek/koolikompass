@@ -1,0 +1,9 @@
+[project]
+name = "koolikompass"
+version = "0.3.0"
+description = "Kooliülesannete ja tähtaegade planeerija"
+requires-python = ">=3.12"
+dependencies = ["Django>=5.2,<5.3", "psycopg[binary]>=3.2,<4"]
+
+[tool.uv]
+package = false
