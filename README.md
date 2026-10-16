@@ -50,16 +50,8 @@ uv run python app/manage.py makemigrations --check --dry-run
 
 ## Projekti materjalid
 
-- [Rakenduse juhend: demo, andmebaas ja avaldamine](app/README.md)
-- [Arendusprotsess](docs/01-arendusprotsess.md)
-- [Metoodika ja backlog](docs/02-metoodika-ja-backlog.md)
-- [CASE-vahendid](docs/03-case-vahendid.md)
-- [Arhitektuur ja andmemudel](docs/04-arhitektuur.md)
-- [Git ja versiooniplaan](docs/05-git-ja-versioonid.md)
-- [Kaitsmise kava](docs/06%20-%2008/06-kaitsmine.md)
-- [Praktilise kaitsmise harjutused](docs/06%20-%2008/07-praktiline-kaitsmine.md)
-- [Õppetekst ja lingid](docs/06%20-%2008/08-oppetekst-ja-lingid.md)
-- [Harjutusskeemid](docs/09-skeemide-koopiad.md)
-- [Teostus ja kontrollitulemused](docs/10-rakenduse-teostus.md)
+- [Kavand ja teostus](docs/projekt.md)
+- [Kaitsmise meelespea ja harjutused](docs/kaitsmine.md)
+- [Rakenduse juhend](app/README.md)
 - [Arhitektuuriskeem](diagrams/arhitektuur.drawio) ja [andmemudel](diagrams/andmemudel.drawio)
 - [GitHubi repositoorium](https://github.com/Ken-Janek/koolikompass) ja [projektitahvel](https://github.com/users/Ken-Janek/projects/1)
