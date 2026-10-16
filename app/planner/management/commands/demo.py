@@ -1,4 +1,5 @@
-"""Halduskäsk demoandmete loomiseks: python app/manage.py demo."""
+# Faili eesmärk: luua proovimiseks eraldi konto koos näidisainete ja ülesannetega.
+
 import getpass
 from datetime import datetime, time, timedelta
 from django.contrib.auth.models import User

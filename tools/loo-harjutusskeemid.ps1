@@ -1,3 +1,5 @@
+# Faili eesmärk: luua arhitektuuriskeemist mobiili, koormuse ja lühema tähtaja harjutuskoopiad.
+
 # Loo algsest arhitektuuriskeemist kolm õppimiseks mõeldud varianti.
 $ErrorActionPreference = 'Stop'
 $projectDir = Split-Path $PSScriptRoot -Parent

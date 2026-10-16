@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{# Faili eesmärk: kuvada ülesannete loend, kokkuvõtted, otsing ja oleku muutmise nupud. #}
 {# Vaade annab mallile filtreeritud page-objekti ja loendurid. GET filtreerib; CSRF-tokeniga POST muudab olekut. #}
 {% block content %}
 <div class="page-heading"><div><span class="eyebrow">{% now 'l, j. F' %}</span><h1>Minu ülesanded<span class="heading-dot">.</span></h1><p class="muted">Kõik koolitööd ühes kohas. Võta järgmine samm.</p></div><a class="button primary" href="{% url 'task_create' %}"><span aria-hidden="true">＋</span> Lisa ülesanne</a></div>

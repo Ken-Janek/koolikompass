@@ -1,4 +1,6 @@
+{# Faili eesmärk: koostada kõigi lehtede ühine raam, menüü, teadete ala ja staatiliste failide laadimine. #}
 {# Ühine leheraam: static laeb CSS-i ja JavaScripti; block-kohad täidetakse alammallides. Autenditud kasutaja näeb töölauda. #}
+{# load static lubab viidata CSS-ile ja JavaScriptile; block määrab alammalli täidetava koha. #}
 {% load static %}<!doctype html>
 <html lang="et">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}KooliKompass{% endblock %}</title><link rel="stylesheet" href="{% static 'app.css' %}"><script defer src="{% static 'app.js' %}"></script></head>

@@ -1,4 +1,5 @@
-"""Rakenduse nimi ja vaikimisi automaatse primaarvõtme tüüp Django registri jaoks."""
+# Faili eesmärk: registreerida planner-rakenduse nimi ja põhiomadused Djangos.
+
 from django.apps import AppConfig
 
 class PlannerConfig(AppConfig):

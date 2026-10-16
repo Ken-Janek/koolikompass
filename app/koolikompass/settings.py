@@ -1,4 +1,5 @@
-"""Django seadistus. Kohalikud vaikeväärtused ja keskkonnamuutujatega tootmise valikud."""
+# Faili eesmärk: määrata rakenduse andmebaas, turvaseaded, keel, ajavöönd ning failide asukohad.
+
 import os
 import secrets
 from pathlib import Path

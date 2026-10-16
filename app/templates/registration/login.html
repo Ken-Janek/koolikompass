@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{# Faili eesmärk: kuvada sisselogimisvorm ja suunata kasutaja pärast autentimist edasi. #}
 {# Kasuta Django autentimisvormi; vead kuvatakse ühise vormiväljade malli kaudu. #}
 {% block title %}Logi sisse · KooliKompass{% endblock %}
 {% block auth_content %}<div class="auth-form"><span class="eyebrow">TERE TULEMAST TAGASI</span><h2>Logi sisse</h2><p class="muted">Sinu ülesanded ootavad sind.</p><form method="post">{% csrf_token %}{% include 'planner/form_fields.html' %}{% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}<button class="button primary full">Logi sisse <span aria-hidden="true">→</span></button></form><p class="auth-switch">Pole veel kontot? <a href="{% url 'register' %}">Loo konto</a></p></div>{% endblock %}

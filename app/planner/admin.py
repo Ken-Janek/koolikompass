@@ -1,4 +1,5 @@
-"""Registreeri mudelid Django haldusliideses ning vali nimekirja veerud ja olekufilter."""
+# Faili eesmärk: teha õppeained ja ülesanded hallatavaks Django administraatori vaates.
+
 from django.contrib import admin
 from .models import Subject, Task
 

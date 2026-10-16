@@ -1,12 +1,22 @@
+# Faili eesmärk: kirjeldada projekti nime, versiooni, Pythoni nõuet ja paigaldatavaid sõltuvusi.
+
 # Projekti nimi, versioon ja toetatud Pythoni versioon.
+# TOML-i nurksulgudes nimi alustab seadistusjaotist.
 [project]
+# Projekti nimi tööriistade jaoks; see ei määra brauseris kuvatavat pealkirja.
 name = "koolikompass"
+# Versioon kujul MAJOR.MINOR.PATCH, millega eristame rakenduse väljalaskeid.
 version = "0.3.0"
+# Lühikirjeldus selgitab projekti otstarvet.
 description = "Kooliülesannete ja tähtaegade planeerija"
+# Rakendus vajab Python 3.12 või uuemat versiooni.
 requires-python = ">=3.12"
 # Django pakub veebiraamistiku; psycopg võimaldab PostgreSQL-i ühendust.
+# Versioonivahemikud lubavad Django 5.2 parandusi ja psycopg 3.x versioone.
+# Täpsed paigaldusversioonid on lukustatud uv.lock-failis.
 dependencies = ["Django>=5.2,<5.3", "psycopg[binary]>=3.2,<4"]
 
+# Selles jaotises on uv keskkonna- ja sõltuvushalduri seaded.
 [tool.uv]
 # Rakendus käivitatakse manage.py kaudu, seda ei paigaldata Pythoni teegina.
 package = false

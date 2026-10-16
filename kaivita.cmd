@@ -1,4 +1,6 @@
 @echo off
+rem Faili eesmark: valmistada ette keskkond ja kaivitada kohalik veebiserver.
+
 rem Hoia muutujad selle skripti piires ja vali projekti kaust.
 setlocal
 cd /d "%~dp0"

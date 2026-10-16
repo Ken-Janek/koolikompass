@@ -1,4 +1,5 @@
-"""Regressioonitestid. TestCase loob eraldatud testiandmebaasi ning client jäljendab HTTP-päringuid."""
+# Faili eesmärk: kontrollida automaatselt töövoogu, sisendi valideerimist ja kasutajate andmete kaitset.
+
 from datetime import timedelta
 from django.contrib.auth.models import User
 from django.test import Client, TestCase

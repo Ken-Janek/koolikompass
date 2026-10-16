@@ -1,3 +1,4 @@
 {% extends 'base.html' %}
+{# Faili eesmärk: küsida kasutajalt enne ülesande kustutamist kinnitust. #}
 {# Kustutamine vajab kinnitavat POST-päringut koos CSRF-tokeniga. #}
 {% block breadcrumb %}Kustuta ülesanne{% endblock %}{% block content %}<a class="back-link" href="{% url 'dashboard' %}">← Tagasi ülesannete juurde</a><section class="form-card delete-card"><span class="delete-symbol">×</span><h1>Kustuta ülesanne?</h1><p>Ülesanne „<strong>{{ task.title }}</strong>“ eemaldatakse jäädavalt.</p><form method="post">{% csrf_token %}<div class="form-actions"><button class="button danger">Jah, kustuta</button><a class="button secondary" href="{% url 'dashboard' %}">Tühista</a></div></form></section>{% endblock %}

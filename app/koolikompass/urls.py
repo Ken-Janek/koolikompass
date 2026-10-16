@@ -1,4 +1,5 @@
-"""Projekti URL-id: haldus ja Django kontovaated; ülejäänu suunatakse planner-moodulisse."""
+# Faili eesmärk: jagada saabuvad veebiaadressid haldusliidese, kontovaadete ja planeerija vahel.
+
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
