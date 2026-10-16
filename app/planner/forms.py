@@ -1,3 +1,4 @@
+"""Vormid kontrollivad sisendit enne andmebaasi salvestamist."""
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
@@ -5,15 +6,18 @@ from .models import Subject, Task
 
 COLORS = [("#8b82f6", "Lilla"), ("#4a9b82", "Roheline"), ("#d49a4c", "Kollane"), ("#d7808f", "Roosa"), ("#5d9ac9", "Sinine")]
 
+# Kasuta Django autentimist ning määra väljade eestikeelsed sildid ja brauseri täitmisvihjed.
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label="Kasutajanimi", widget=forms.TextInput(attrs={"autofocus": True, "autocomplete": "username"}))
     password = forms.CharField(label="Parool", widget=forms.PasswordInput(attrs={"autocomplete": "current-password"}))
 
+# UserCreationForm kontrollib paroolide sobivust ja salvestab parooli räsi.
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "password1", "password2"]
 
+# ModelForm seob vormiväljad Subject-mudeliga; omanikku brauserist ei küsita.
 class SubjectForm(forms.ModelForm):
     color = forms.ChoiceField(label="Värv", choices=COLORS)
     class Meta:
@@ -23,15 +27,20 @@ class SubjectForm(forms.ModelForm):
     def __init__(self, *args, owner, **kwargs):
         super().__init__(*args, **kwargs)
         self.owner = owner
+        # Omanik tuleb sisselogitud sessioonist, mitte kasutaja saadetud vormiandmetest.
         self.instance.owner = owner
 
+    # Eemalda servadest tühikud ja anna korduva nime korral arusaadav vormiviga.
     def clean_name(self):
         name = self.cleaned_data["name"].strip()
+        # Muutmisel jäta sama kirje kontrollist välja, et selle nimi iseendaga ei kattuks.
         if Subject.objects.filter(owner=self.owner, name=name).exclude(pk=self.instance.pk).exists():
             raise forms.ValidationError("Selle nimega õppeaine on sul juba olemas.")
         return name
 
+# Ülesande vorm lubab sisestada ainult Meta.fields loendis nimetatud välju.
 class TaskForm(forms.ModelForm):
+    # datetime-local saadab kuupäeva ja kellaaja ilma vööndita; Django kasutab seadistatud ajavööndit.
     due_at = forms.DateTimeField(label="Tähtaeg", input_formats=["%Y-%m-%dT%H:%M"], widget=forms.DateTimeInput(format="%Y-%m-%dT%H:%M", attrs={"type": "datetime-local"}))
     class Meta:
         model = Task
@@ -40,5 +49,6 @@ class TaskForm(forms.ModelForm):
 
     def __init__(self, *args, owner, **kwargs):
         super().__init__(*args, **kwargs)
+        # Piira nii valikumenüü kui ka valideerimine omaniku ainetega: võõrast ID-d ei saa salvestada.
         self.fields["subject"].queryset = Subject.objects.filter(owner=owner)
         self.fields["subject"].empty_label = "Vali õppeaine"

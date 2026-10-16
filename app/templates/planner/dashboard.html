@@ -1,4 +1,6 @@
-{% extends 'base.html' %}{% block content %}
+{% extends 'base.html' %}
+{# Vaade annab mallile filtreeritud page-objekti ja loendurid. GET filtreerib; CSRF-tokeniga POST muudab olekut. #}
+{% block content %}
 <div class="page-heading"><div><span class="eyebrow">{% now 'l, j. F' %}</span><h1>Minu ülesanded<span class="heading-dot">.</span></h1><p class="muted">Kõik koolitööd ühes kohas. Võta järgmine samm.</p></div><a class="button primary" href="{% url 'task_create' %}"><span aria-hidden="true">＋</span> Lisa ülesanne</a></div>
 <section class="stats" aria-label="Ülesannete kokkuvõte">
 <a class="stat" href="?status=pending"><span class="stat-label">TEGEMATA<span class="stat-icon purple">▦</span></span><strong>{{ counts.pending }}</strong><small>ülesannet ootab</small></a>

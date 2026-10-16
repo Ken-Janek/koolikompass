@@ -1,3 +1,4 @@
+"""Seo aadressid vaadetega. name võimaldab viidata marsruudile ilma aadressi kordamata; pk on kirje ID."""
 from django.urls import path
 from . import views
 

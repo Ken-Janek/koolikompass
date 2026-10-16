@@ -1,3 +1,4 @@
+"""Halduskäsk demoandmete loomiseks: python app/manage.py demo."""
 import getpass
 from datetime import datetime, time, timedelta
 from django.contrib.auth.models import User
@@ -14,9 +15,11 @@ class Command(BaseCommand):
         parser.add_argument("--username", default="demo")
         parser.add_argument("--password-stdin", action="store_true")
 
+    # Loo kogu demo ühe tehinguna: vea korral ei jää osaliselt loodud andmeid.
     @transaction.atomic
     def handle(self, *args, **options):
         username = options["username"]
+        # Olemasoleva konto andmeid ei muudeta; korduva nime korral peatame käsu.
         if User.objects.filter(username=username).exists():
             raise CommandError("Selle nimega kasutaja on juba olemas; vali teine nimi. Olemasolevaid andmeid ei muudeta.")
         if options["password_stdin"]:
@@ -25,10 +28,12 @@ class Command(BaseCommand):
         else:
             password = getpass.getpass("Demo konto parool: ")
         from django.contrib.auth.password_validation import validate_password
+        # Rakenda samu paroolireegleid, mida kasutab registreerimisvorm.
         validate_password(password, User(username=username))
         user = User.objects.create_user(username, password=password)
         names = [("Tarkvaraarendus", "#8b82f6"), ("Matemaatika", "#d49a4c"), ("Inglise keel", "#5d9ac9"), ("Andmebaasid", "#4a9b82")]
         subjects = [Subject.objects.create(owner=user, name=name, color=color) for name, color in names]
+        # Iga näidis sisaldab pealkirja, aine indeksit, päevade nihet ja kirjeldust.
         sample = [
             ("Lõpeta projekti arenduskavand", 0, 0, "Vaata üle kasutajalood ja skeemide seosed."),
             ("Lahenda võrrandite ülesanded", 1, 1, "Harjutused 12–18, lisa lahenduskäik."),
@@ -39,6 +44,7 @@ class Command(BaseCommand):
         ]
         today = timezone.localdate()
         for title, subject, offset, description in sample:
+            # Arvuta tähtajad tänase suhtes kell 20.00 Eesti ajas; negatiivne nihe loob hilinenud töö.
             due = timezone.make_aware(datetime.combine(today + timedelta(days=offset), time(20, 0)))
             Task.objects.create(subject=subjects[subject], title=title, due_at=due, description=description)
         Task.objects.create(subject=subjects[0], title="Vali projekti arendusmudel", due_at=timezone.now()-timedelta(days=2), completed=True)

@@ -1,51 +1,65 @@
-# KooliKompass
+﻿# KooliKompass
 
-Kooliülesannete ja tähtaegade planeerija — arenduskavand ja töötav Django rakendus.
+Eestikeelne kooliülesannete ja tähtaegade planeerija. Projekt sisaldab töötavat Django veebirakendust ning selle arenduskavandit.
 
-## Rakenduse käivitamine
+## Käivitamine
 
-Windowsis käivita põhikaustas **`kaivita.cmd`**, seejärel ava **http://127.0.0.1:8000**. Loo konto, lisa õppeained ja sisesta ülesanded. Andmed säilivad kohalikus andmebaasis.
+Windowsis käivita projekti põhikaustas `kaivita.cmd` ja ava [localhost:8000](http://127.0.0.1:8000). Esimesel käivitamisel on vaja [uv-d](https://docs.astral.sh/uv/getting-started/installation/) ja internetiühendust.
 
-[Käivitamisjuhend ja PostgreSQL-i seadistamine](app/README.md) · [Rakenduse lähtekood](app/) · [Kontrollitulemused](docs/10-rakenduse-teostus.md)
+Loo konto, lisa õppeained ning sisesta ülesanded. Andmed säilivad failis `app/db.sqlite3`. Serveri peatamiseks vajuta `Ctrl+C`.
 
-## Projekti idee
+Käsurealt, projekti põhikaustas:
 
-KooliKompass on kooliülesannete ja tähtaegade planeerija arenduskavand, mis on koostatud õppeülesande jaoks. Rakendus koondaks ülesanded ja tähtajad ühte vaatesse.
+```sh
+uv sync --python 3.13 --frozen
+uv run python app/manage.py migrate
+uv run python app/manage.py runserver
+```
 
-Sihtkasutaja on õpilane. Esimene versioon on isiklik planeerija: õpetaja ei jaga selles ülesandeid ja rakendus ei ühendu kooli infosüsteemiga. Ülesanded sisestab õpilane ise.
+## Võimalused
 
-## Esimese töötava versiooni eesmärk
+- Konto loomine ning sisse- ja väljalogimine.
+- Isiklikud õppeained ja ülesannete lisamine, muutmine ning kustutamine.
+- Ülesannete tehtuks märkimine, otsing ja filtrid.
+- Tähtaegade järgi järjestatud nimekiri ja nädalakalender.
 
-Õpilane saab sisse logida, lisada õppeaine ja ülesande koos tähtajaga, näha ülesandeid tähtaja järjekorras ning märkida need tehtuks. Tulemus on edukas, kui kolm proovikasutajat suudavad abita lisada ülesande, leida lähima tähtaja ja märkida ülesande tehtuks. Iga tegevuse siht on alla ühe minuti.
+Õpilane sisestab oma ülesanded ise. Rakendus kasutab Djangot, HTML-i, CSS-i ja JavaScripti. Vaikimisi andmebaas on SQLite; PostgreSQL-i seadistus on [rakenduse juhendis](app/README.md).
 
-## Materjalid
+## Koodi ülesehitus
 
+| Asukoht | Sisu |
+| --- | --- |
+| `app/planner/models.py` | Õppeained, ülesanded ja andmebaasireeglid |
+| `app/planner/forms.py` | Sisestusvormid ja andmete kontroll |
+| `app/planner/views.py` | Päringute töötlemine, filtrid ja kalender |
+| `app/planner/urls.py` | Aadresside sidumine vaadetega |
+| `app/templates/` | HTML-mallid |
+| `app/static/` | Kujundus ja JavaScript |
+| `app/koolikompass/` | Django seadistus ja projekti URL-id |
+| `app/planner/tests.py` | Automaattestid |
+
+Koodis on eestikeelsed kommentaarid, mis selgitavad funktsioone ja olulisemate ridade tähendust.
+
+## Kontrollimine
+
+```sh
+uv run python app/manage.py check
+uv run python app/manage.py test planner
+uv run python app/manage.py makemigrations --check --dry-run
+```
+
+## Projekti materjalid
+
+- [Rakenduse juhend: demo, andmebaas ja avaldamine](app/README.md)
 - [Arendusprotsess](docs/01-arendusprotsess.md)
-- [Metoodika, backlog ja esimene arendusperiood](docs/02-metoodika-ja-backlog.md)
-- [CASE-vahendid ja kasutusjuhend](docs/03-case-vahendid.md)
+- [Metoodika ja backlog](docs/02-metoodika-ja-backlog.md)
+- [CASE-vahendid](docs/03-case-vahendid.md)
 - [Arhitektuur ja andmemudel](docs/04-arhitektuur.md)
 - [Git ja versiooniplaan](docs/05-git-ja-versioonid.md)
-- [Kaitsmise kava ja nõuete kontroll](docs/06-kaitsmine.md)
-- [15–20 minuti praktilise kaitsmise harjutused](docs/07-praktiline-kaitsmine.md)
-- [Õppetekst ja kaitsmisel avatavad lingid](docs/08-oppetekst-ja-lingid.md)
-- [Arhitektuuriskeemi kolm muudetavat harjutuskoopiat](docs/09-skeemide-koopiad.md)
-- [Muudetav arhitektuuriskeem](diagrams/arhitektuur.drawio)
-- [Muudetav andmemudel](diagrams/andmemudel.drawio)
-- [Projektitahvli ettevalmistus](planning/github-projects.md)
-- [Kasutajalugude andmed](planning/backlog.json)
-
-## Valitud lahendus
-
-Veebirakendus, kihiline monoliit, iteratiivne ja inkrementaalne arendus ning Kanban. Tehnoloogia on Django koos serveris renderdatavate HTML-mallide ja CSS-iga. Kohalik käivitus kasutab SQLite'i; kavandatud PostgreSQL-i ühenduse saab seadistada keskkonnamuutujatega. Algne arendusplaan säilib kavandamise dokumentides ja töötav teostus asub kaustas `app/`.
-
-## Hetkeseis ja tegelikud tõendid
-
-- [Avalik GitHubi repositoorium](https://github.com/Ken-Janek/koolikompass)
-- [Avalik GitHub Projects Kanbani tahvel](https://github.com/users/Ken-Janek/projects/1)
-- [Sisuliste commit'ide ajalugu](https://github.com/Ken-Janek/koolikompass/commits/main/)
-- [Arhitektuuriskeem diagrams.net-is](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FKen-Janek%2Fkoolikompass%2Fmain%2Fdiagrams%2Farhitektuur.drawio)
-- [Andmemudel diagrams.net-is](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FKen-Janek%2Fkoolikompass%2Fmain%2Fdiagrams%2Fandmemudel.drawio)
-
-Tahvlil on kaheksa kirjeldatud kasutajalugu koos prioriteetide, hinnangute, sõltuvuste ja vastuvõtukriteeriumidega. US-01–US-08 on pärast kohaliku teostuse kontrollimist Done-veergu viidud. In progress ja In review piir on üks kaart. Arhitektuuriskeem on avatud ja visuaalselt kontrollitud diagrams.net-is; mõlema XML-faili struktuur ning viited on kontrollitud.
-
-Rakenduse teostuses on kontod, õppeained, ülesannete haldus, filtrid, otsing ja nädalavaade. Projekti tahvel näitab teostatud tööde seisu; varasem `evidence/kanban.jpg` säilitab algse plaani ja `evidence/kanban-valmis.jpg` näitab Done-veergu. Teostuse ja kontrollimise tulemused on [eraldi dokumendis](docs/10-rakenduse-teostus.md). Avaldamiseks mõeldud commit'ides kasutatakse GitHubi noreply aadressi.
+- [Kaitsmise kava](docs/06%20-%2008/06-kaitsmine.md)
+- [Praktilise kaitsmise harjutused](docs/06%20-%2008/07-praktiline-kaitsmine.md)
+- [Õppetekst ja lingid](docs/06%20-%2008/08-oppetekst-ja-lingid.md)
+- [Harjutusskeemid](docs/09-skeemide-koopiad.md)
+- [Teostus ja kontrollitulemused](docs/10-rakenduse-teostus.md)
+- [Arhitektuuriskeem](diagrams/arhitektuur.drawio) ja [andmemudel](diagrams/andmemudel.drawio)
+- [GitHubi repositoorium](https://github.com/Ken-Janek/koolikompass) ja [projektitahvel](https://github.com/users/Ken-Janek/projects/1)

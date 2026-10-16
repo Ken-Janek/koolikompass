@@ -1,16 +1,20 @@
+# Loo algsest arhitektuuriskeemist kolm õppimiseks mõeldud varianti.
 $ErrorActionPreference = 'Stop'
 $projectDir = Split-Path $PSScriptRoot -Parent
 $sourcePath = Join-Path $projectDir 'diagrams/arhitektuur.drawio'
 
+# Leia diagrams.net-i XML-ist elemendi ID järgi kast või ühendus.
 function Get-Cell($doc, $id) {
     return $doc.SelectSingleNode("//mxCell[@id='$id']")
 }
+# Muuda elemendi koordinaate ja mõõtmeid mxGeometry atribuutides.
 function Set-Box($doc, $id, $x, $y, $width, $height) {
     $geometry = (Get-Cell $doc $id).SelectSingleNode('mxGeometry')
     foreach ($pair in @(@('x', $x), @('y', $y), @('width', $width), @('height', $height))) {
         $geometry.SetAttribute($pair[0], [string]$pair[1])
     }
 }
+# Lisa skeemile uus kast ja selle paigutus; parent määrab konteineri.
 function Add-Box($doc, $id, $label, $x, $y, $width, $height, $parent = '1') {
     $cell = $doc.CreateElement('mxCell')
     foreach ($pair in @(@('id', $id), @('value', $label), @('vertex', '1'), @('parent', $parent), @('style', 'rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;'))) {
@@ -22,6 +26,7 @@ function Add-Box($doc, $id, $label, $x, $y, $width, $height, $parent = '1') {
     $doc.SelectSingleNode('//root').AppendChild($cell) | Out-Null
     Set-Box $doc $id $x $y $width $height
 }
+# Ühenduse source ja target viitavad olemasolevate kastide ID-dele.
 function Add-Edge($doc, $id, $label, $source, $target, $extraStyle = '') {
     $cell = $doc.CreateElement('mxCell')
     foreach ($pair in @(@('id', $id), @('value', $label), @('edge', '1'), @('parent', '1'), @('source', $source), @('target', $target), @('style', "edgeStyle=orthogonalEdgeStyle;html=1;startArrow=classic;endArrow=classic;fontSize=13;labelBackgroundColor=#ffffff;$extraStyle"))) {
@@ -33,6 +38,7 @@ function Add-Edge($doc, $id, $label, $source, $target, $extraStyle = '') {
     $cell.AppendChild($geometry) | Out-Null
     $doc.SelectSingleNode('//root').AppendChild($cell) | Out-Null
 }
+# Salvesta eraldi UTF-8 fail ning vabasta failikirjutaja ka vea korral.
 function Save-Diagram($doc, $fileName, $diagramName) {
     $doc.mxfile.diagram.SetAttribute('name', $diagramName)
     $doc.mxfile.diagram.SetAttribute('id', $fileName.Replace('.drawio', ''))

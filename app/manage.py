@@ -1,3 +1,4 @@
+"""Käsurea sisenemispunkt: edasta argumendid Django halduskäskudele."""
 import os
 import sys
 

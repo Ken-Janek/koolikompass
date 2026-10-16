@@ -1,3 +1,4 @@
+"""Regressioonitestid. TestCase loob eraldatud testiandmebaasi ning client jäljendab HTTP-päringuid."""
 from datetime import timedelta
 from django.contrib.auth.models import User
 from django.test import Client, TestCase
@@ -7,6 +8,7 @@ from .models import Subject, Task
 
 
 class PlannerTests(TestCase):
+    # Iga test saab kaks kasutajat: nii saab kontrollida ka võõraste andmete kaitset.
     def setUp(self):
         self.user = User.objects.create_user("õpilane", password="Test-Password-842!")
         self.other = User.objects.create_user("teine", password="Test-Password-927!")
@@ -16,6 +18,7 @@ class PlannerTests(TestCase):
         self.foreign_task = Task.objects.create(subject=self.foreign_subject, title="Võõras töö", due_at=timezone.now() + timedelta(days=1))
         self.client.force_login(self.user)
 
+    # Tagasta korrektne vormisisend; changes võimaldab testida üksikut muudatust.
     def payload(self, **changes):
         data = {"title": "Uus ülesanne", "subject": self.subject.pk, "due_at": "2027-05-10T14:30", "description": "Märkmed"}
         data.update(changes)

@@ -1,2 +1,4 @@
-{% extends 'base.html' %}{% block title %}Loo konto · KooliKompass{% endblock %}
+{% extends 'base.html' %}
+{# Konto loomise vorm kontrollib kasutajanime ja mõlemat paroolivälja serveris. #}
+{% block title %}Loo konto · KooliKompass{% endblock %}
 {% block auth_content %}<div class="auth-form"><span class="eyebrow">ALUSTAME SIIT</span><h2>Loo oma konto</h2><p class="muted">Tee oma koolitöödest selge ülevaade.</p><form method="post">{% csrf_token %}{% include 'planner/form_fields.html' %}<button class="button primary full">Loo konto <span aria-hidden="true">→</span></button></form><p class="auth-switch">Konto on olemas? <a href="{% url 'login' %}">Logi sisse</a></p></div>{% endblock %}

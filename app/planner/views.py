@@ -1,3 +1,4 @@
+"""HTTP-vaated ühendavad päringud, vormid ja mallid. Kaitstud vaated nõuavad sisselogimist."""
 from datetime import timedelta
 from django.contrib import messages
 from django.contrib.auth import login
@@ -10,10 +11,13 @@ from .forms import RegisterForm, SubjectForm, TaskForm
 from .models import Subject, Task
 
 
+# GET kuvab registreerimisvormi; korrektne POST loob konto ja avab kasutajale sessiooni.
 def register(request):
     if request.user.is_authenticated:
         return redirect("dashboard")
+    # POST-andmed seotakse vormiga; GET-päringul jääb vorm täitmata.
     form = RegisterForm(request.POST or None)
+    # Andmebaasi kirjutame alles pärast väljade ja paroolide kontrolli.
     if request.method == "POST" and form.is_valid():
         user = form.save()
         login(request, user)
@@ -23,16 +27,20 @@ def register(request):
 
 
 @login_required
+# Koosta töölaud: kokkuvõtted, filtrid, otsing ja Üks lehekülg ülesandeid.
 def dashboard(request):
     now = timezone.now()
     today = timezone.localdate()
+    # Omanikufilter välistab võõrad tööd; select_related toob aine sama SQL-päringuga.
     tasks = Task.objects.filter(subject__owner=request.user).select_related("subject")
+    # Arvuta kõik neli loendurit enne nimekirja filtreerimist ühe koondpäringuga.
     counts = tasks.aggregate(
         pending=Count("id", filter=Q(completed=False)),
         overdue=Count("id", filter=Q(completed=False, due_at__lt=now)),
         today=Count("id", filter=Q(completed=False, due_at__date=today)),
         done=Count("id", filter=Q(completed=True)),
     )
+    # GET-parameetrid pärinevad aadressiribalt; tundmatu olek asendatakse vaikevalikuga.
     status = request.GET.get("status", "pending")
     if status not in {"pending", "done", "all", "overdue", "today"}:
         status = "pending"
@@ -45,16 +53,20 @@ def dashboard(request):
     elif status == "today":
         tasks = tasks.filter(completed=False, due_at__date=today)
     subject = request.GET.get("subject", "")
+    # Aine ID-d kasutame ainult numbrina; omaniku piirang jääb päringule alles.
     if subject.isdecimal():
         tasks = tasks.filter(subject_id=int(subject))
     else:
         subject = ""
     search = request.GET.get("q", "").strip()
+    # Q ühendab tingimused VÕI-tehtega; icontains otsib teksti tõstutundetult.
     if search:
         tasks = tasks.filter(Q(title__icontains=search) | Q(description__icontains=search))
     from django.core.paginator import Paginator
+    # Näita kuni 25 tööd; get_page käsitleb ka vigaseid ja puuduvaid lehenumbreid.
     page = Paginator(tasks, 25).get_page(request.GET.get("page"))
     query = request.GET.copy()
+    # Eemalda vana lehenumber, et järgmise lehe lingil säiliksid ülejäänud filtrid.
     query.pop("page", None)
     subjects = Subject.objects.filter(owner=request.user).annotate(pending_count=Count("tasks", filter=Q(tasks__completed=False)))
     return render(request, "planner/dashboard.html", {
@@ -66,6 +78,7 @@ def dashboard(request):
 
 
 @login_required
+# Kuva kasutaja ained ning salvesta kontrollitud vormiga uus aine.
 def subjects(request):
     form = SubjectForm(request.POST or None, owner=request.user)
     if request.method == "POST" and form.is_valid():
@@ -76,7 +89,9 @@ def subjects(request):
 
 
 @login_required
+# Sama vaade lisab uue töö või muudab pk järgi olemasolevat tööd.
 def task_form(request, pk=None):
+    # Võõra või puuduva töö korral tagastame 404; loomisel on instance tühi.
     task = get_object_or_404(Task, pk=pk, subject__owner=request.user) if pk is not None else None
     if not Subject.objects.filter(owner=request.user).exists():
         messages.info(request, "Lisa enne ülesannet vähemalt üks õppeaine.")
@@ -91,6 +106,7 @@ def task_form(request, pk=None):
 
 @login_required
 @require_POST
+# Sisselogimine ja require_POST lubavad olekut muuta ainult POST-päringuga.
 def task_toggle(request, pk):
     task = get_object_or_404(Task, pk=pk, subject__owner=request.user)
     # Määrame soovitud oleku, et topeltsaatmine ei pööraks tulemust tagasi.
@@ -99,6 +115,7 @@ def task_toggle(request, pk):
         from django.http import HttpResponseBadRequest
         return HttpResponseBadRequest("Vigane olek")
     task.completed = desired == "1"
+    # Salvesta ainult olekuväli; teised Ülesande andmed jäävad puutumata.
     task.save(update_fields=["completed"])
     messages.success(request, "Ülesanne on tehtud." if task.completed else "Ülesanne on taas tegemata.")
     status = request.POST.get("return_status", "pending")
@@ -109,6 +126,7 @@ def task_toggle(request, pk):
 
 
 @login_required
+# GET näitab kinnitust, POST kustutab ainult praegusele kasutajale kuuluva töö.
 def task_delete(request, pk):
     task = get_object_or_404(Task, pk=pk, subject__owner=request.user)
     if request.method == "POST":
@@ -119,6 +137,7 @@ def task_delete(request, pk):
 
 
 @login_required
+# Jaota valitud nädala ülesanded seitsmesse kohaliku kuupäeva lahtrisse.
 def calendar(request):
     today = timezone.localdate()
     try:
@@ -126,13 +145,17 @@ def calendar(request):
         chosen = date.fromisoformat(request.GET.get("week", today.isoformat()))
     except (ValueError, TypeError):
         chosen = today
+    # weekday annab esmaspäeval 0; lahutamine leiab valitud nädala esmaspäeva.
     monday = chosen - timedelta(days=chosen.weekday())
     # Piiritle päevad ajatempliga, et indeks oleks päringus kasutatav.
     from datetime import datetime, time
+    # Muuda esmaspäeva südaöö ajavööndiga ajatempliks.
     start = timezone.make_aware(datetime.combine(monday, time.min))
+    # Nädalavahemiku algus on kaasatud ja järgmise esmaspäeva algus välistatud.
     end = start + timedelta(days=7)
     tasks = Task.objects.filter(subject__owner=request.user, due_at__gte=start, due_at__lt=end).select_related("subject")
     days = [{"date": monday + timedelta(days=i), "tasks": []} for i in range(7)]
+    # Päevade vahe annab lahtri indeksi 0–6; teisenda tähtaeg esmalt Eesti aega.
     for task in tasks:
         days[(timezone.localtime(task.due_at).date() - monday).days]["tasks"].append(task)
     return render(request, "planner/calendar.html", {
